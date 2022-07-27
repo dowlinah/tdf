@@ -5,8 +5,28 @@
 #include <iostream>
 #include <fstream>
 
+/**
+ *  @file TLV_file.hpp
+ *  @author Anthony Dowling
+ *  @brief Contains the class declaration for the TLVFile
+ *    class
+ **/
+
 class TLVFile {
     public:
+        /**
+         * @brief TLVFile Constructor
+         * @details This constructor takes the mpi
+         *      communicator to use, the solution vector filename
+         *      and the metadata prefix. After construction,
+         *      the file object is ready to be used for
+         *      writing/reading.
+         *  @param comm The MPI communicator to be used.
+         *  @param name The filename for the solution vector
+         *  @param mname The prefix for the meta data
+         *      vectors. Suffixes will be added
+         *      automatically for each of the three vectors.
+         **/
         TLVFile(MPI_Comm comm, const std::string& name, const std::string& mname="") :
             _mpi_comm(comm)
         {
@@ -17,10 +37,34 @@ class TLVFile {
             metadata_cached = false;
         }
 
+        /**
+         * @brief Writes the given Function to disk.
+         * @details If save_metadata is true, then this
+         *      function will create three files to store
+         *      the meta data vectors. 
+         *      If they already exist, They will be
+         *      overwritten.
+         * @param u The Function to be saved.
+         **/
         bool write(const dolfin::Function& u);
+        /**
+         * @brief Reads a Function from the disk.
+         * @details The meta data vectors will be read if
+         *      needed. If cache_metadata is true, and the
+         *      meta data have not been read previously,
+         *      they will be read from disk. If they have
+         *      been previously read, then the vectors
+         *      already in memory will be used to load the
+         *      Function.
+         * @param u The Function object to read the stored Function
+         *      into.
+         */
         bool read(dolfin::Function& u);
+        /// @brief Determines if meta data should be saved to disk when write is called.
         bool save_metadata;
-        bool metadata_cached, cache_metadata;
+        bool metadata_cached;
+        /// @brief Determines if cached meta data should be used, and if meta data should be cached between reads.
+        bool cache_metadata;
 
     private:
         std::vector<std::size_t> cached_input_cells;
