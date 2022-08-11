@@ -2,6 +2,10 @@
 
 Authors: Anthony Dowling, Lin Jiang, Dr. Ming-Cheng Cheng, Dr. Yu Liu
 
+Department of Electrical and Computer Engineering, Clarkson University.
+
+Emails: {dowlinah,jiangl2,mcheng,yuliu}@clarkson.edu
+
 TLV File format implementation used for storing FEniCS Function objects.
 
 ## Using the TLV File in a FEniCS C++ Program
@@ -53,6 +57,17 @@ true causes the TLVFile object to read the metadata vectors
 when it reads the first solution, then it uses the
 previously read metadata to order subsequently read solution
 vectors into the mesh.
+
+## Running Example
+
+Included is an example FEniCS program that computes the
+Poisson Equation. Assuming all dependencies are installed on
+your system, running `bash run_example.sh` will execute the
+example program and display the sizes of all of the metadata
+files, the solution TLV file, and the HDF5 file that stores
+the same information. The included `reset_example.sh` script
+can be used to remove the files generates by
+`run_example.sh`
 
 ## Generating Documentation
 
