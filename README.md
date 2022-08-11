@@ -58,7 +58,7 @@ when it reads the first solution, then it uses the
 previously read metadata to order subsequently read solution
 vectors into the mesh.
 
-## Running Example
+## Running Poisson Equation Example
 
 Included is an example FEniCS program that computes the
 Poisson Equation. Assuming all dependencies are installed on
