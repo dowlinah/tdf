@@ -15,10 +15,3 @@ set(SOURCES
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} dolfin)
-
-
-#target_include_directories(${PROJECT_NAME}
-    #PUBLIC
-    #$<BUILD_INTERFACE:/usr/lib/petsc/include>
-    #$<BUILD_INTERFACE:/usr/lib/slepc/include>
-#)
