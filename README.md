@@ -1,6 +1,6 @@
 # FEniCS TLV File
 
-Authors: Anthony Dowling, Lin Jiang, Ming-Cheng Cheng, Yu Liu
+Authors: Anthony Dowling, Lin Jiang, Dr. Ming-Cheng Cheng, Dr. Yu Liu
 
 TLV File format implementation used for storing FEniCS Function objects.
 
