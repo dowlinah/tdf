@@ -24,10 +24,10 @@ Our TDF format can be used similarly:
 
 ```
 Function u;
-TDFFile in_file = TDFFile(mesh->mpi_comm(), "file.tlv", "meta");
+TDFFile in_file = TDFFile(mesh->mpi_comm(), "file.tdf", "meta");
 input_file.cache_metadata = true; // enables caching of metadata
 input_file.read(u);
-TDFFile out_file = TDFFile(mesh->mpi_comm(), "out.tlv", "out_meta");
+TDFFile out_file = TDFFile(mesh->mpi_comm(), "out.tdf", "out_meta");
 output_file.save_metadata = true; // only necessary for first write
 output_file.write(u);
 ```
