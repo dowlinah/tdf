@@ -8,8 +8,8 @@ include(${DOLFIN_USE_FILE})
 set(SRC_DIR src/)
 set(SOURCES
     ${SRC_DIR}main.cpp
-    ${SRC_DIR}TLV_file.hpp
-    ${SRC_DIR}TLV_file.cpp
+    ${SRC_DIR}TDF_file.hpp
+    ${SRC_DIR}TDF_file.cpp
     ${SRC_DIR}forms.h
 )
 

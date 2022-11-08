@@ -3,7 +3,7 @@
 using namespace dolfin;
 #include "forms.h"
 
-#include "TLV_file.hpp"
+#include "TDF_file.hpp"
 
 class u_D_expr : public Expression {
     public:
@@ -48,8 +48,8 @@ int main(int argc, char** argv) {
     ofh.write(u,"solution");
     ofh.close();
 
-    TLVFile out_tlv = TLVFile(mesh->mpi_comm(), "solution.tlv", "meta");
-    out_tlv.save_metadata = true;
-    out_tlv.write(u);
+    TDFFile out_tdf = TDFFile(mesh->mpi_comm(), "solution.tdf", "meta");
+    out_tdf.save_metadata = true;
+    out_tdf.write(u);
 
 }

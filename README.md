@@ -1,4 +1,4 @@
-# FEniCS TLV File
+# FEniCS TDF File
 
 Authors: Anthony Dowling, Lin Jiang, Dr. Ming-Cheng Cheng, Dr. Yu Liu
 
@@ -6,9 +6,9 @@ Department of Electrical and Computer Engineering, Clarkson University.
 
 Emails: {dowlinah,jiangl2,mcheng,yuliu}@clarkson.edu
 
-TLV File format implementation used for storing FEniCS Function objects.
+TLV-based File format implementation used for storing FEniCS Function objects.
 
-## Using the TLV File in a FEniCS C++ Program
+## Using the TDF File in a FEniCS C++ Program
 
 In FEniCS, the HDF5 file format can be used as follows:
 
@@ -20,14 +20,14 @@ HDF5File out_file = HDF5File(mesh->mpi_comm(), "outfile.h5", "w");
 output_file.write(u);
 ```
 
-Our TLV format can be used similarly:
+Our TDF format can be used similarly:
 
 ```
 Function u;
-TLVFile in_file = TLVFile(mesh->mpi_comm(), "file.tlv", "meta");
+TDFFile in_file = TDFFile(mesh->mpi_comm(), "file.tlv", "meta");
 input_file.cache_metadata = true; // enables caching of metadata
 input_file.read(u);
-TLVFile out_file = TLVFile(mesh->mpi_comm(), "out.tlv", "out_meta");
+TDFFile out_file = TDFFile(mesh->mpi_comm(), "out.tlv", "out_meta");
 output_file.save_metadata = true; // only necessary for first write
 output_file.write(u);
 ```
@@ -35,7 +35,7 @@ output_file.write(u);
 The arguments are very similar to dolfin's HDF5
 implementation, except for the third.  The third argument to
 the constructor is the metadata prefix. When data is saved
-using the TLV format, three metadata vectors are saved in
+using the TDF format, three metadata vectors are saved in
 separate files using this prefix. The suffixes are added
 automatically. The same metadata prefix that was used to
 write the data should be used during loading to ensure
@@ -53,7 +53,7 @@ also writing the metadata vectors.
 
 The `cache_metadata` option enables the use of cached
 metadata when reading multiple solution files. Setting it to
-true causes the TLVFile object to read the metadata vectors
+true causes the TDFFile object to read the metadata vectors
 when it reads the first solution, then it uses the
 previously read metadata to order subsequently read solution
 vectors into the mesh.
@@ -64,7 +64,7 @@ Included is an example FEniCS program that computes the
 Poisson Equation. Assuming all dependencies are installed on
 your system, running `bash run_example.sh` will execute the
 example program and display the sizes of all of the metadata
-files, the solution TLV file, and the HDF5 file that stores
+files, the solution TDF file, and the HDF5 file that stores
 the same information. The included `reset_example.sh` script
 can be used to remove the files generates by
 `run_example.sh`
@@ -82,4 +82,4 @@ make
 ```
 
 and that will generate refman.pdf, which details the use of
-the TLV file class.
+the TDF file class.

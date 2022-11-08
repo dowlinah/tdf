@@ -3,8 +3,8 @@
 # Set Up Example
 cd poisson_example/src;
 ffc -l dolfin forms.ufl
-ln -s ../../TLV_file.cpp .
-ln -s ../../TLV_file.hpp .
+ln -s ../../TDF_file.cpp .
+ln -s ../../TDF_file.hpp .
 
 # Build Example
 cd ../
@@ -14,4 +14,4 @@ cmake ..;
 make
 
 ./poisson_example
-ls -lah *.tlv *.h5 meta*
+ls -lah *.tdf *.h5 meta*
