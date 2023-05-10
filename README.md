@@ -11,7 +11,9 @@ TLV-based File format implementation used for storing FEniCS Function objects.
 If you use TDF or any of its components, please cite:
 
 ```
-Anthony Dowling, Lin Jiang, Ming-Cheng Cheng, Yu Liu, TDF: A Compact File Format Plugin for FEniCS, SoftwareX, Elsevier, 22 (2023)
+Anthony Dowling, Lin Jiang, Ming-Cheng Cheng, Yu Liu, 
+TDF: A Compact File Format Plugin for FEniCS, SoftwareX, 
+Elsevier, 22 (2023)
 ```
 
 Original Repository: https://github.com/dowlinah/tdf
