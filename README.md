@@ -14,6 +14,8 @@ If you use TDF or any of its components, please cite:
 Anthony Dowling, Lin Jiang, Ming-Cheng Cheng, Yu Liu, TDF: A Compact File Format Plugin for FEniCS, SoftwareX, Elsevier, 22 (2023)
 ```
 
+Original Repository: https://github.com/dowlinah/tdf
+
 ## Using the TDF File in a FEniCS C++ Program
 
 In FEniCS, the HDF5 file format can be used as follows:
